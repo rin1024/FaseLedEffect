@@ -1,6 +1,8 @@
 /**
-   PrideEffect
-*/
+ * PrideEffect
+ *
+ * カラフルな粒がくるくる回転(というか移動)する
+ */
 #include "PrideEffect.h"
 
 /** 
@@ -13,7 +15,7 @@ void PrideEffect::loop() {
   static uint16_t sHue16 = 0;
  
   uint8_t sat8 = beatsin88( 87, 220, 250);
-  uint8_t brightdepth = beatsin88( 341, 96, 224);
+  uint8_t brightdepth = 255;//beatsin88( 341, 96, 224);
   uint16_t brightnessthetainc16 = beatsin88( 203, (25 * 256), (40 * 256));
   uint8_t msmultiplier = beatsin88(147, 23, 60);
 
@@ -21,7 +23,7 @@ void PrideEffect::loop() {
   uint16_t hueinc16 = beatsin88(113, 1, 3000);
   
   uint16_t ms = millis();
-  uint16_t deltams = ms - sLastMillis ;
+  uint16_t deltams = ms - sLastMillis;
   sLastMillis  = ms;
   sPseudotime += deltams * msmultiplier;
   sHue16 += deltams * beatsin88( 400, 5,9);
@@ -38,11 +40,15 @@ void PrideEffect::loop() {
     uint8_t bri8 = (uint32_t)(((uint32_t)bri16) * brightdepth) / 65536;
     bri8 += (255 - brightdepth);
     
-    CRGB newcolor = CHSV( hue8, sat8, bri8);
+    CRGB newcolor = CHSV(hue8, sat8, bri8);
     
     uint16_t pixelnumber = i;
     pixelnumber = (numLeds - 1) - pixelnumber;
     
+    // nblend( CRGB& existing, const CRGB& overlay, fract8 amountOfOverlay )
     nblend( leds[pixelnumber], newcolor, 64);
+
+    // brightness対応用にblackとblendをかける
+    leds[pixelnumber] = blend(CRGB::Black, leds[pixelnumber], getBrightness());
   }
 }
