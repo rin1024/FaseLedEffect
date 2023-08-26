@@ -40,7 +40,6 @@ class ConfettiEffect: public FaseLedEffect {
     int       thishue = 50;                                       // Starting hue.
     uint8_t   thisinc = 1;                                        // Incremental value for rotating hues
     uint8_t   thissat = 100;                                      // The saturation, where 255 = brilliant colours.
-    uint8_t   thisbri = 255;                                      // Brightness of a sequence. Remember, max_bright is the overall limiter.
     int       huediff = 256;                                      // Range of random #'s to use for hue
     uint8_t thisdelay = 5;                                        // We don't need much delay (if any)
 
