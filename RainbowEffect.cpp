@@ -16,6 +16,9 @@ void RainbowEffect::loop() {
   fill_rainbow_with_brigthness(rainbowHue % 255, 8);
 }
 
+/**
+ *
+ */
 void RainbowEffect::fill_rainbow_with_brigthness(uint8_t initialhue, uint8_t deltahue) {
   CHSV hsv;
   hsv.hue = initialhue;

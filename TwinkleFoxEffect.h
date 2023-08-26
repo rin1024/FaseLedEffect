@@ -53,7 +53,7 @@
 #define COOL_LIKE_INCANDESCENT 1
 
 /**************************************************************************************
-  Smoothing readings
+  class definition
  **************************************************************************************/
 class TwinkleFoxEffect: public FaseLedEffect {
   public:

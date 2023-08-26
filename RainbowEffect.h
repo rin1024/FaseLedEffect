@@ -1,6 +1,6 @@
 /**
-  RainbowEffect
-  */
+ * RainbowEffect
+ */
 #ifndef RAINBOW_EFFECT_H
 #define RAINBOW_EFFECT_H
 
@@ -26,7 +26,7 @@
 #define RAINBOW_SPEED 5 // 20
 
 /**************************************************************************************
-  Smoothing readings
+  class definition
  **************************************************************************************/
 class RainbowEffect: public FaseLedEffect {
   public:

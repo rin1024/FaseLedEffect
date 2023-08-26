@@ -62,7 +62,7 @@
 #define SPARKING 120
 
 /**************************************************************************************
-   Smoothing readings
+   class definition
  **************************************************************************************/
 class FireEffect: public FaseLedEffect {
   public:

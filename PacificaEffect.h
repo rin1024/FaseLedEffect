@@ -49,7 +49,7 @@
 // the waters off the southern coast of California, https://goo.gl/maps/QQgd97jjHesHZVxQ7
 //
 /**************************************************************************************
-   Smoothing readings
+   class definition
  **************************************************************************************/
 class PacificaEffect: public FaseLedEffect {
   public:
