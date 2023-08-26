@@ -1,5 +1,7 @@
 /**
  * ConfettiEffect
+ *
+ * つぶつぶが点在するエフェクト
  */
 #include "ConfettiEffect.h"
 
@@ -21,7 +23,8 @@ void ConfettiEffect::loop() {
     }
   }
 
-  EVERY_N_MILLISECONDS(thisdelay) {                           // FastLED based non-blocking delay to update/display the sequence.
+  // FastLED based non-blocking delay to update/display the sequence.
+  EVERY_N_MILLISECONDS(thisdelay) {
     confetti();
   }
 }
@@ -32,6 +35,13 @@ void ConfettiEffect::loop() {
 void ConfettiEffect::confetti() {
   fadeToBlackBy(leds, numLeds, thisfade);                    // Low values = slower fade.
   int pos = random16(numLeds);                               // Pick an LED at random.
-  leds[pos] += CHSV(/*(thishue + random16(huediff))/4 */0, /*thissat*/0, thisbri);  // I use 12 bits for hue so that the hue increment isn't too quick.
+
+  // デフォルトのカラフルver
+  // leds[pos] += CHSV((thishue + random16(huediff))/4, thissat, getBrightness());  // I use 12 bits for hue so that the hue increment isn't too quick.
+
+  // 白のみのつぶつぶ表現ver
+  // NOTE: HSVのHとSを0にすると白になる
+  leds[pos] += CHSV(0, 0, getBrightness());  // I use 12 bits for hue so that the hue increment isn't too quick.
+
   thishue = thishue + thisinc;                                // It increments here.
 }
