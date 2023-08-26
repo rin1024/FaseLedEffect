@@ -12,7 +12,7 @@ FASTLED_USING_NAMESPACE
 #define COLOR_ORDER BGR
 #define NUM_LEDS    100
 
-#define FRAMES_PER_SECOND 30
+#define FRAMES_SPEED 15 // 小さいほど早くなる、30くらいがいいかも
 
 CRGB leds[NUM_LEDS];
 
@@ -33,8 +33,9 @@ void setup() {
 }
 
 void loop() {
-  effect.loop();
+  EVERY_N_MILLISECONDS(FRAMES_SPEED) {
+    effect.loop();
+  }
   
-  FastLED.show(); // display this frame
-  FastLED.delay(1000 / FRAMES_PER_SECOND);
+  FastLED.show();
 }
