@@ -10,24 +10,25 @@
  */
 void TwinkleFoxEffect::setup(CRGB *_leds, uint16_t _numLeds) {
   FaseLedEffect::setup(_leds, _numLeds);
-
-  chooseNextColorPalette(gTargetPalette);
 }
 
 /**
  *
  */
 void TwinkleFoxEffect::loop() {
-  EVERY_N_SECONDS( SECONDS_PER_PALETTE ) { 
-    chooseNextColorPalette( gTargetPalette ); 
-  }
-  
   EVERY_N_MILLISECONDS( 10 ) {
     // nblendPaletteTowardPalette( CRGBPalette16& current, CRGBPalette16& target, uint8_t maxChanges)
     nblendPaletteTowardPalette( gCurrentPalette, gTargetPalette, 12);
   }
 
   drawTwinkles();
+}
+
+/**
+ *
+ */
+void TwinkleFoxEffect::setTargetPalette(CRGBPalette16 &_nextPalette) {
+  gTargetPalette = _nextPalette;
 }
 
 //  This function loops over each pixel, calculates the 
@@ -157,13 +158,4 @@ void TwinkleFoxEffect::coolLikeIncandescent( CRGB& c, uint8_t phase) {
   uint8_t cooling = (phase - 128) >> 4;
   c.g = qsub8( c.g, cooling);
   c.b = qsub8( c.b, cooling * 2);
-}
-
-// Advance to the next color palette in the list (above).
-void TwinkleFoxEffect::chooseNextColorPalette( CRGBPalette16& pal) {
-  const uint8_t numberOfPalettes = sizeof(ActivePaletteList) / sizeof(ActivePaletteList[0]);
-  static uint8_t whichPalette = -1; 
-  whichPalette = addmod8( whichPalette, 1, numberOfPalettes);
-
-  pal = *(ActivePaletteList[whichPalette]);
 }
