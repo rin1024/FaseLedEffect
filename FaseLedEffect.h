@@ -35,9 +35,14 @@ class FaseLedEffect {
     void setup(CRGB *_leds, uint16_t _numLeds = 5);
     void loop();
 
+    uint16_t getBrightness();
+    void setBrightness(uint16_t _brightness);
+
   protected:
     CRGB *leds; // CRGBSet
     uint16_t numLeds;
+
+    uint16_t brightness;
 };
 
 #endif
