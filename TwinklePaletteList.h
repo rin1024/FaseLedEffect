@@ -5,20 +5,6 @@
 #define TWINKLE_PALETTE_LIST__EFFECT_H
 
 /*******************************************
-  include
- *******************************************/
-#include <stdio.h>
-#include <string.h>
-#include <inttypes.h>
-#include <math.h>
-#include <avr/pgmspace.h>
-#if defined(ARDUINO) && ARDUINO >= 100
-#include "Arduino.h"
-#else
-#include "WProgram.h"
-#endif
-
-/*******************************************
   const
  *******************************************/
 #define Holly_Green 0x00580c
@@ -40,14 +26,16 @@
 // A mostly red palette with green accents and white trim.
 // "CRGB::Gray" is used as white to keep the brightness more uniform.
 const TProgmemRGBPalette16 RedGreenWhite_p FL_PROGMEM =
-{  CRGB::Red, CRGB::Red, CRGB::Red, CRGB::Red, 
+{  
+  CRGB::Red, CRGB::Red, CRGB::Red, CRGB::Red, 
   CRGB::Red, CRGB::Red, CRGB::Red, CRGB::Red, 
   CRGB::Red, CRGB::Red, CRGB::Gray, CRGB::Gray, 
   CRGB::Green, CRGB::Green, CRGB::Green, CRGB::Green };
 
 // A mostly (dark) green palette with red berries.
 const TProgmemRGBPalette16 Holly_p FL_PROGMEM =
-{  Holly_Green, Holly_Green, Holly_Green, Holly_Green, 
+{  
+  Holly_Green, Holly_Green, Holly_Green, Holly_Green, 
   Holly_Green, Holly_Green, Holly_Green, Holly_Green, 
   Holly_Green, Holly_Green, Holly_Green, Holly_Green, 
   Holly_Green, Holly_Green, Holly_Green, Holly_Red 
@@ -56,7 +44,8 @@ const TProgmemRGBPalette16 Holly_p FL_PROGMEM =
 // A red and white striped palette
 // "CRGB::Gray" is used as white to keep the brightness more uniform.
 const TProgmemRGBPalette16 RedWhite_p FL_PROGMEM =
-{  CRGB::Red,  CRGB::Red,  CRGB::Red,  CRGB::Red, 
+{  
+  CRGB::Red,  CRGB::Red,  CRGB::Red,  CRGB::Red, 
   CRGB::Gray, CRGB::Gray, CRGB::Gray, CRGB::Gray,
   CRGB::Red,  CRGB::Red,  CRGB::Red,  CRGB::Red, 
   CRGB::Gray, CRGB::Gray, CRGB::Gray, CRGB::Gray };
@@ -64,30 +53,33 @@ const TProgmemRGBPalette16 RedWhite_p FL_PROGMEM =
 // A mostly blue palette with white accents.
 // "CRGB::Gray" is used as white to keep the brightness more uniform.
 const TProgmemRGBPalette16 BlueWhite_p FL_PROGMEM =
-{  CRGB::Blue, CRGB::Blue, CRGB::Blue, CRGB::Blue, 
+{  
+  CRGB::Blue, CRGB::Blue, CRGB::Blue, CRGB::Blue, 
   CRGB::Blue, CRGB::Blue, CRGB::Blue, CRGB::Blue, 
   CRGB::Blue, CRGB::Blue, CRGB::Blue, CRGB::Blue, 
   CRGB::Blue, CRGB::Gray, CRGB::Gray, CRGB::Gray };
 
 // A pure "fairy light" palette with some brightness variations
 const TProgmemRGBPalette16 FairyLight_p FL_PROGMEM =
-{  CRGB::FairyLight, CRGB::FairyLight, CRGB::FairyLight, CRGB::FairyLight, 
+{  
+  CRGB::FairyLight, CRGB::FairyLight, CRGB::FairyLight, CRGB::FairyLight, 
   HALFFAIRY,        HALFFAIRY,        CRGB::FairyLight, CRGB::FairyLight, 
   QUARTERFAIRY,     QUARTERFAIRY,     CRGB::FairyLight, CRGB::FairyLight, 
   CRGB::FairyLight, CRGB::FairyLight, CRGB::FairyLight, CRGB::FairyLight };
 
 // A palette of soft snowflakes with the occasional bright one
 const TProgmemRGBPalette16 Snow_p FL_PROGMEM =
-{  0x304048, 0x304048, 0x304048, 0x304048,
+{  
+  0x304048, 0x304048, 0x304048, 0x304048,
   0x304048, 0x304048, 0x304048, 0x304048,
   0x304048, 0x304048, 0x304048, 0x304048,
   0x304048, 0x304048, 0x304048, 0xE0F0FF };
 
 // A palette reminiscent of large 'old-school' C9-size tree lights
 // in the five classic colors: red, orange, green, blue, and white.
-
 const TProgmemRGBPalette16 RetroC9_p FL_PROGMEM =
-{  C9_Red,    C9_Orange, C9_Red,    C9_Orange,
+{  
+  C9_Red,    C9_Orange, C9_Red,    C9_Orange,
   C9_Orange, C9_Red,    C9_Orange, C9_Red,
   C9_Green,  C9_Green,  C9_Green,  C9_Green,
   C9_Blue,   C9_Blue,   C9_Blue,
