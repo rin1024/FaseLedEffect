@@ -20,20 +20,21 @@
 #include <FastLED.h>
 #include "FaseLedEffect.h"
 
-/*******************************************
-  const
- *******************************************/
-#define RAINBOW_SPEED 5 // 20
-
 /**************************************************************************************
   class definition
  **************************************************************************************/
 class RainbowEffect: public FaseLedEffect {
   public:
+    void setup(CRGB *_leds, uint16_t _numLeds = 5);
     void loop();
+
+    void setSaturation(uint8_t _saturation);
+    void setRainbowSpeed(uint16_t _rainbowSpeed);
 
   private:
     uint8_t rainbowHue;
+    uint8_t saturation;
+    uint16_t rainbowSpeed;
     
     void fill_rainbow_with_brigthness(uint8_t initialhue, uint8_t deltahue);
 };

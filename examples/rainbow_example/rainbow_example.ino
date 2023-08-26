@@ -28,6 +28,8 @@ void setup() {
     .setCorrection(TypicalLEDStrip);
 
   effect.setup(leds, NUM_LEDS);
+  effect.setSaturation(255);
+  effect.setRainbowSpeed(5);
 }
 
 void loop() {
