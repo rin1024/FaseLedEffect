@@ -1,6 +1,8 @@
 /**
-   PacificaEffect
-*/
+ * PacificaEffect
+ *
+ * 幽霊がうごめいているような、あやしげなエフェクト
+ */
 #include "PacificaEffect.h"
 
 /** 
@@ -29,20 +31,36 @@ void PacificaEffect::loop() {
   fill_solid( leds, numLeds, CRGB( 2, 6, 10));
 
   // Render each of four layers, with different scales and speeds, that vary over time
-  pacifica_one_layer( pacifica_palette_1, sCIStart1, beatsin16( 3, 11 * 256, 14 * 256), beatsin8( 10, 70, 130), 0-beat16( 301) );
-  pacifica_one_layer( pacifica_palette_2, sCIStart2, beatsin16( 4,  6 * 256,  9 * 256), beatsin8( 17, 40,  80), beat16( 401) );
-  pacifica_one_layer( pacifica_palette_3, sCIStart3, 6 * 256, beatsin8( 9, 10,38), 0-beat16(503));
-  pacifica_one_layer( pacifica_palette_3, sCIStart4, 5 * 256, beatsin8( 8, 10,28), beat16(601));
+  pacifica_one_layer(
+      pacifica_palette_1,
+      sCIStart1,
+      beatsin16( 3, 11 * 256, 14 * 256),
+      0 - beat16( 301));
+  pacifica_one_layer(
+      pacifica_palette_2,
+      sCIStart2,
+      beatsin16( 4,  6 * 256,  9 * 256),
+      beat16( 401));
+  pacifica_one_layer(
+      pacifica_palette_3,
+      sCIStart3,
+      6 * 256,
+      0-beat16(503));
+  pacifica_one_layer(
+      pacifica_palette_3,
+      sCIStart4,
+      5 * 256,
+      beat16(601));
 
   // Add brighter 'whitecaps' where the waves lines up more
   pacifica_add_whitecaps();
 
   // Deepen the blues and greens a bit
-  pacifica_deepen_colors();
+  //pacifica_deepen_colors();
 }
 
 // Add one layer of waves into the led array
-void PacificaEffect::pacifica_one_layer( CRGBPalette16& p, uint16_t cistart, uint16_t wavescale, uint8_t bri, uint16_t ioff) {
+void PacificaEffect::pacifica_one_layer( CRGBPalette16& p, uint16_t cistart, uint16_t wavescale, uint16_t ioff) {
   uint16_t ci = cistart;
   uint16_t waveangle = ioff;
   uint16_t wavescale_half = (wavescale / 2) + 20;
@@ -53,7 +71,7 @@ void PacificaEffect::pacifica_one_layer( CRGBPalette16& p, uint16_t cistart, uin
     ci += cs;
     uint16_t sindex16 = sin16( ci) + 32768;
     uint8_t sindex8 = scale16( sindex16, 240);
-    CRGB c = ColorFromPalette( p, sindex8, bri, LINEARBLEND);
+    CRGB c = ColorFromPalette( p, sindex8, getBrightness(), LINEARBLEND);
     leds[i] += c;
   }
 }
@@ -62,7 +80,7 @@ void PacificaEffect::pacifica_one_layer( CRGBPalette16& p, uint16_t cistart, uin
 void PacificaEffect::pacifica_add_whitecaps() {
   uint8_t basethreshold = beatsin8( 9, 55, 65);
   uint8_t wave = beat8( 7 );
-  
+
   for( uint16_t i = 0; i < numLeds; i++) {
     uint8_t threshold = scale8( sin8( wave), 20) + basethreshold;
     wave += 7;
