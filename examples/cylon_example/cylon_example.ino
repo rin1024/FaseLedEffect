@@ -1,3 +1,4 @@
+// スムージングされた色が手前から奥に流れていく、逆方向も、を繰り返す
 #define FASTLED_ALLOW_INTERRUPTS 0
 #include <FastLED.h>
 FASTLED_USING_NAMESPACE

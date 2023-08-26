@@ -1,3 +1,4 @@
+// 幽霊がうごめいているような、あやしげなエフェクト
 #define FASTLED_ALLOW_INTERRUPTS 0
 #include <FastLED.h>
 FASTLED_USING_NAMESPACE
