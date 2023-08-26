@@ -66,6 +66,7 @@
  **************************************************************************************/
 class FireEffect: public FaseLedEffect {
   public:
+    // trueだと手前側が暗くなる
     bool gReverseDirection = true;
 
     FireEffect();

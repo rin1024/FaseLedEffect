@@ -1,6 +1,8 @@
 /**
-   FireEffect
-*/
+ * FireEffect
+ *
+ * 炎をイメージしたエフェクト
+ */
 #include "FireEffect.h"
 
 /**
@@ -57,13 +59,13 @@ void FireEffect::Fire2012(){
 
   // Step 4.  Map from heat cells to LED colors
   for( uint16_t j = 0; j < numLeds; j++) {
-    CRGB color = HeatColor( heat[j]);
+    CRGB color = HeatColor(heat[j]);
     int pixelnumber;
     if( gReverseDirection ) {
       pixelnumber = (numLeds - 1) - j;
     } else {
       pixelnumber = j;
     }
-    leds[pixelnumber] = color;
+    leds[pixelnumber] = blend(CRGB::Black, color, getBrightness());
   }
 }
