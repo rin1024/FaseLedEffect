@@ -1,6 +1,8 @@
 /**
-   TwinkleFoxEffect
-*/
+ * TwinkleFoxEffect
+ *
+ * いろんなパレットでつぶつぶ光らせる
+ */
 #include "TwinkleFoxEffect.h"
 
 /**
@@ -21,6 +23,7 @@ void TwinkleFoxEffect::loop() {
   }
   
   EVERY_N_MILLISECONDS( 10 ) {
+    // nblendPaletteTowardPalette( CRGBPalette16& current, CRGBPalette16& target, uint8_t maxChanges)
     nblendPaletteTowardPalette( gCurrentPalette, gTargetPalette, 12);
   }
 
@@ -92,6 +95,9 @@ void TwinkleFoxEffect::drawTwinkles() {
       // just use the background color.
       leds[i] = bg;
     }
+
+    // brightness対応用にblackとblendをかける
+    leds[i] = blend(CRGB::Black, leds[i], getBrightness());
   }
 }
 
