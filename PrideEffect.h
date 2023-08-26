@@ -31,6 +31,11 @@
 class PrideEffect: public FaseLedEffect {
   public:
     void loop();
+
+  private:
+    uint16_t sPseudotime = 0;
+    uint16_t sLastMillis = 0;
+    uint16_t sHue16 = 0;
 };
 
 #endif
