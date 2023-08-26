@@ -8,10 +8,10 @@ FASTLED_USING_NAMESPACE
 
 #define DATA_PIN    3
 #define LED_TYPE    WS2812
-#define COLOR_ORDER GRB
+#define COLOR_ORDER BGR
 #define NUM_LEDS    100
 
-#define FRAMES_PER_SECOND 30//60
+#define FRAMES_PER_SECOND 30
 
 CRGB leds[NUM_LEDS];
 
@@ -25,16 +25,13 @@ void setup() {
   sprintf(buff, "[%s] %s", __COMPILE_DATE__, __FILENAME__);
   Serial.println(buff);
 
-  FastLED.addLeds<CHIPSET, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS)
+  FastLED.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS)
     .setCorrection(TypicalLEDStrip);
 
   effect.setup(leds, NUM_LEDS);
 }
 
 void loop() {
-  // Add entropy to random number generator; we use a lot of it.
-  // random16_add_entropy( random());
-
   effect.loop();
   
   FastLED.show(); // display this frame
