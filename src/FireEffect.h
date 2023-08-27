@@ -74,6 +74,7 @@ class FireEffect: public FastLEDEffect {
 
     void setup(CRGB *_leds, uint16_t _numLeds = 5);
     void loop();
+    void lazyLoop();
 
     void setCooling(uint8_t _cooling);
     void setSparking(uint8_t _sparking);

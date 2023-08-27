@@ -34,6 +34,7 @@ class FastLEDEffect {
 
     void setup(CRGB *_leds, uint16_t _numLeds = 5);
     void loop();
+    void lazyLoop();
 
     uint16_t getBrightness();
     void setBrightness(uint16_t _brightness);

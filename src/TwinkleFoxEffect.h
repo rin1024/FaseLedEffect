@@ -52,6 +52,7 @@ class TwinkleFoxEffect: public FastLEDEffect {
   public:
     void setup(CRGB *_leds, uint16_t _numLeds = 5);
     void loop();
+    void lazyLoop();
 
     void setBackgroundColor(CRGB _backgroundColor);
     void setTargetPalette(CRGBPalette16 &_nextPalette);

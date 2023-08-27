@@ -1,24 +1,24 @@
 /**
-   FastLEDEffect
-*/
+ * FastLEDEffect
+ */
 #include "FastLEDEffect.h"
 
 /**
-   コンストラクタ
-*/
+ * コンストラクタ
+ */
 FastLEDEffect::FastLEDEffect() {
 }
 
 /**
-   デストラクタ
-*/
+ * デストラクタ
+ */
 FastLEDEffect::~FastLEDEffect() {
   //delete[] leds;
 }
 
 /**
-   初期化
-*/
+ * 初期化
+ */
 void FastLEDEffect::setup(CRGB *_leds, uint16_t _numLeds) {
   leds = _leds;
   numLeds = _numLeds;
@@ -26,10 +26,17 @@ void FastLEDEffect::setup(CRGB *_leds, uint16_t _numLeds) {
 }
 
 /**
-   アップデート関数
-*/
+ * アップデート関数
+ */
 void FastLEDEffect::loop() {
 
+}
+
+/**
+ * アップデート関数(細かい処理を自分で書きたくないときのループ)
+ */
+void FastLEDEffect::lazyLoop() {
+  loop();
 }
 
 /**

@@ -6,14 +6,14 @@
 #include "FireEffect.h"
 
 /**
-   コンストラクタ
-*/
+ * コンストラクタ
+ */
 FireEffect::FireEffect() {
 }
 
 /**
-   デストラクタ
-*/
+ * デストラクタ
+ */
 FireEffect::~FireEffect() {
   delete[] heat;
 }
@@ -38,6 +38,16 @@ void FireEffect::loop() {
   // Add entropy to random number generator; we use a lot of it.
   // random16_add_entropy( random());
   Fire2012(); // run simulation frame
+}
+
+/** 
+ *
+ */
+void FireEffect::lazyLoop() {
+  uint16_t framesSpeed = 15; // 15 ~ 30
+  EVERY_N_MILLISECONDS(framesSpeed) {
+    loop();
+  }
 }
 
 void FireEffect::Fire2012(){

@@ -24,6 +24,20 @@ void TwinkleFoxEffect::loop() {
   drawTwinkles();
 }
 
+/** 
+ *
+ */
+void TwinkleFoxEffect::lazyLoop() {
+  //uint16_t secondsPerPalette = 30;
+  //EVERY_N_SECONDS( secondsPerPalette ) { 
+    //const uint8_t numberOfPalettes = sizeof(ActivePaletteList) / sizeof(ActivePaletteList[0]);
+    //currentPaletteIndex = addmod8( currentPaletteIndex, 1, numberOfPalettes);
+    //chooseNextColorPalette(currentPaletteIndex); 
+  //}
+  
+  loop();
+}
+
 /**
  *
  */
