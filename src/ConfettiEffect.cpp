@@ -38,7 +38,6 @@ void ConfettiEffect::confetti() {
 
   // デフォルトのカラフルver
   // leds[pos] += CHSV((thishue + random16(huediff))/4, thissat, getBrightness());  // I use 12 bits for hue so that the hue increment isn't too quick.
-
   // 白のみのつぶつぶ表現ver
   // NOTE: HSVのHとSを0にすると白になる
   leds[pos] += CHSV(0, 0, getBrightness());  // I use 12 bits for hue so that the hue increment isn't too quick.

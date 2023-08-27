@@ -26,6 +26,7 @@ void BeatWaveEffect::loop() {
     nblendPaletteTowardPalette(currentPalette, targetPalette, maxChanges);
   }
 
+  // TODO: これは外だしにしてパレット変えられるようにしてもいいかも
   // Change the target palette to a random one every 5 seconds.
   EVERY_N_SECONDS(5) {
     targetPalette = CRGBPalette16(
@@ -48,6 +49,10 @@ void BeatWaveEffect::beatwave() {
 
   for (uint16_t i=0; i<numLeds; i++) {
     // same as ColorFromPalette( currentPalette, colorIndex, brightness, currentBlending)
-    leds[i] = ColorFromPalette( currentPalette, i + wave1 + wave2 + wave3 + wave4, getBrightness(), currentBlending); 
+    leds[i] = ColorFromPalette(
+        currentPalette, 
+        i + wave1 + wave2 + wave3 + wave4, 
+        getBrightness(), 
+        currentBlending); 
   }
 }
