@@ -1,8 +1,8 @@
 /**
- * TwinklePaletteList
+ * FastLEDPalette
  */
-#ifndef TWINKLE_PALETTE_LIST__EFFECT_H
-#define TWINKLE_PALETTE_LIST__EFFECT_H
+#ifndef FASTLED_PALETTE__EFFECT_H
+#define FASTLED_PALETTE__EFFECT_H
 
 /*******************************************
   const

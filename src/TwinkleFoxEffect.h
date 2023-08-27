@@ -19,7 +19,7 @@
 #endif
 #include <FastLED.h>
 #include "FaseLedEffect.h"
-#include "TwinklePaletteList.h"
+#include "FastLEDEffectPalette.h"
 
 /*******************************************
   const

@@ -3,7 +3,7 @@
 #include <FastLED.h>
 FASTLED_USING_NAMESPACE
 #include "TwinkleFoxEffect.h"
-#include "TwinklePaletteList.h"
+#include "FastLEDEffectPalette.h"
 
 #define __COMPILE_DATE__ __DATE__ " " __TIME__
 #define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
