@@ -29,6 +29,7 @@ void setup() {
     .setCorrection(TypicalLEDStrip);
 
   effect.setup(leds, NUM_LEDS);
+  effect.setDirection(DIRECTION_BACKWARD_ONLY);
 }
 
 void loop() {

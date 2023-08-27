@@ -1,6 +1,6 @@
 /**
-  CylonEffect
-  */
+ * CylonEffect
+ */
 #ifndef CYLON_EFFECT_H
 #define CYLON_EFFECT_H
 
@@ -23,7 +23,9 @@
 /*******************************************
   const
  *******************************************/
-
+#define DIRECTION_BOTH          1
+#define DIRECTION_FORWARD_ONLY  2
+#define DIRECTION_BACKWARD_ONLY 3
 
 /**************************************************************************************
   class definition
@@ -32,7 +34,10 @@ class CylonEffect: public FaseLedEffect {
   public:
     void loop();
 
+    void setDirection(uint8_t _direction);
+
   private:
+    uint8_t direction = DIRECTION_BOTH;
     uint8_t hue = 0;
 
     void fadeall();
