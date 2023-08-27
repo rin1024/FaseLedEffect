@@ -32,22 +32,22 @@ void PacificaEffect::loop() {
 
   // Render each of four layers, with different scales and speeds, that vary over time
   pacifica_one_layer(
-      pacifica_palette_1,
+      pacificaPalette1,
       sCIStart1,
       beatsin16( 3, 11 * 256, 14 * 256),
       0 - beat16( 301));
   pacifica_one_layer(
-      pacifica_palette_2,
+      pacificaPalette2,
       sCIStart2,
       beatsin16( 4,  6 * 256,  9 * 256),
       beat16( 401));
   pacifica_one_layer(
-      pacifica_palette_3,
+      pacificaPalette3,
       sCIStart3,
       6 * 256,
       0-beat16(503));
   pacifica_one_layer(
-      pacifica_palette_3,
+      pacificaPalette3,
       sCIStart4,
       5 * 256,
       beat16(601));
@@ -57,6 +57,18 @@ void PacificaEffect::loop() {
 
   // Deepen the blues and greens a bit
   //pacifica_deepen_colors();
+}
+
+void PacificaEffect::setPacificaPalette(int _index, CRGBPalette16 _pacificaPalette) {
+  if (_index == 0) {
+    pacificaPalette1 = _pacificaPalette;
+  }
+  else if (_index == 1) {
+    pacificaPalette2 = _pacificaPalette;
+  }
+  else if (_index == 2) {
+    pacificaPalette3 = _pacificaPalette;
+  }
 }
 
 // Add one layer of waves into the led array
