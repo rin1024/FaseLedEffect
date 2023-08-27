@@ -15,6 +15,8 @@ FASTLED_USING_NAMESPACE
 
 CRGBArray<NUM_LEDS> leds;
 
+#define SECONDS_PER_PALETTE  30
+
 TwinkleFoxEffect effect;
 
 // Add or remove palette names from this list to control which color
@@ -47,6 +49,13 @@ void setup() {
     .setCorrection(TypicalLEDStrip);
 
   effect.setup(leds, NUM_LEDS);
+  effect.setBackgroundColor(CRGB::Black);
+  CRGBPalette16 pal = Snow_p;
+  effect.setTargetPalette(pal);
+  effect.setTwinkleSpeed(DEFAULT_TWINKLE_SPEED); // 0 ~ 8
+  effect.setTwinkleDensity(DEFAULT_TWINKLE_DENSITY); // 0 ~ 8
+  effect.setAutoSelectBackgroundColorFlag(DEFAULT_AUTO_SELECT_BACKGROUND_COLOR); // T or F
+  effect.setCoolLikeIncandescentFlag(DEFAULT_COOL_LIKE_INCANDESCENT); // T or F
 
   chooseNextColorPalette(0);
 }

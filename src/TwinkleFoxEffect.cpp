@@ -27,8 +27,48 @@ void TwinkleFoxEffect::loop() {
 /**
  *
  */
+void TwinkleFoxEffect::setBackgroundColor(CRGB _backgroundColor) {
+  gBackgroundColor = _backgroundColor;
+}
+
+/**
+ *
+ */
 void TwinkleFoxEffect::setTargetPalette(CRGBPalette16 &_nextPalette) {
   gTargetPalette = _nextPalette;
+}
+
+/**
+ * 0 ~ 8
+ */
+void TwinkleFoxEffect::setTwinkleSpeed(uint8_t _twinkleSpeed) {
+  if (_twinkleSpeed <= 8) {
+    twinkleSpeed = _twinkleSpeed;
+  }
+}
+
+/**
+ * 0 ~ 8
+ */
+void TwinkleFoxEffect::setTwinkleDensity(uint8_t _twinkleDensity) {
+  if (_twinkleDensity <= 8) {
+    twinkleDensity = _twinkleDensity;
+  }
+}
+
+/**
+ * 
+ */
+void TwinkleFoxEffect::setAutoSelectBackgroundColorFlag(bool _flag) {
+  autoSelectBackgroundColorFlag = _flag;
+}
+
+/**
+ * 
+ */
+void TwinkleFoxEffect::setCoolLikeIncandescentFlag(bool _flag) {
+  coolLikeIncandescentFlag = _flag;
+
 }
 
 //  This function loops over each pixel, calculates the 
@@ -50,7 +90,7 @@ void TwinkleFoxEffect::drawTwinkles() {
   // the current palette are identical, then a deeply faded version of
   // that color is used for the background color
   CRGB bg;
-  if( (AUTO_SELECT_BACKGROUND_COLOR == 1) &&
+  if( (autoSelectBackgroundColorFlag) &&
       (gCurrentPalette[0] == gCurrentPalette[1] )) {
     bg = gCurrentPalette[0];
     uint8_t bglight = bg.getAverageLight();
@@ -124,7 +164,7 @@ uint8_t TwinkleFoxEffect::attackDecayWave8( uint8_t i) {
 //  The 'high digits' are also used to determine whether this pixel
 //  should light at all during this cycle, based on the TWINKLE_DENSITY.
 CRGB TwinkleFoxEffect::computeOneTwinkle( uint32_t ms, uint8_t salt) {
-  uint16_t ticks = ms >> (8-TWINKLE_SPEED);
+  uint16_t ticks = ms >> (8-twinkleSpeed);
   uint8_t fastcycle8 = ticks;
   uint16_t slowcycle16 = (ticks >> 8) + salt;
   slowcycle16 += sin8( slowcycle16);
@@ -132,7 +172,7 @@ CRGB TwinkleFoxEffect::computeOneTwinkle( uint32_t ms, uint8_t salt) {
   uint8_t slowcycle8 = (slowcycle16 & 0xFF) + (slowcycle16 >> 8);
   
   uint8_t bright = 0;
-  if( ((slowcycle8 & 0x0E)/2) < TWINKLE_DENSITY) {
+  if( ((slowcycle8 & 0x0E)/2) < twinkleDensity) {
     bright = attackDecayWave8( fastcycle8);
   }
 
@@ -140,7 +180,7 @@ CRGB TwinkleFoxEffect::computeOneTwinkle( uint32_t ms, uint8_t salt) {
   CRGB c;
   if( bright > 0) {
     c = ColorFromPalette( gCurrentPalette, hue, bright, NOBLEND);
-    if( COOL_LIKE_INCANDESCENT == 1 ) {
+    if( coolLikeIncandescentFlag ) {
       coolLikeIncandescent( c, fastcycle8);
     }
   } else {
