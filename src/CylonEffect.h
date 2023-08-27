@@ -18,7 +18,7 @@
 #include "WProgram.h"
 #endif
 #include <FastLED.h>
-#include "FaseLedEffect.h"
+#include "FastLEDEffect.h"
 
 /*******************************************
   const
@@ -30,7 +30,7 @@
 /**************************************************************************************
   class definition
  **************************************************************************************/
-class CylonEffect: public FaseLedEffect {
+class CylonEffect: public FastLEDEffect {
   public:
     void loop();
 

@@ -9,7 +9,7 @@
  *
  */
 void BeatWaveEffect::setup(CRGB *_leds, uint16_t _numLeds) {
-  FaseLedEffect::setup(_leds, _numLeds);
+  FastLEDEffect::setup(_leds, _numLeds);
 
   currentPalette = RainbowColors_p;
 }

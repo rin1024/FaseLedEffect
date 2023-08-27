@@ -18,7 +18,7 @@
 #include "WProgram.h"
 #endif
 #include <FastLED.h>
-#include "FaseLedEffect.h"
+#include "FastLEDEffect.h"
 
 /*******************************************
    const
@@ -64,7 +64,7 @@
 /**************************************************************************************
    class definition
  **************************************************************************************/
-class FireEffect: public FaseLedEffect {
+class FireEffect: public FastLEDEffect {
   public:
     // trueだと手前側が暗くなる
     bool gReverseDirection = true;

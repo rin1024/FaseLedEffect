@@ -9,7 +9,7 @@
  *
  */
 void RainbowEffect::setup(CRGB *_leds, uint16_t _numLeds) {
-  FaseLedEffect::setup(_leds, _numLeds);
+  FastLEDEffect::setup(_leds, _numLeds);
 
   saturation = 255;
   rainbowHue = 5;

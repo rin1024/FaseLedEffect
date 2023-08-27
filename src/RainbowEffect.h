@@ -18,12 +18,12 @@
 #include "WProgram.h"
 #endif
 #include <FastLED.h>
-#include "FaseLedEffect.h"
+#include "FastLEDEffect.h"
 
 /**************************************************************************************
   class definition
  **************************************************************************************/
-class RainbowEffect: public FaseLedEffect {
+class RainbowEffect: public FastLEDEffect {
   public:
     void setup(CRGB *_leds, uint16_t _numLeds = 5);
     void loop();

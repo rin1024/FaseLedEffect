@@ -22,7 +22,7 @@ FireEffect::~FireEffect() {
  *
  */
 void FireEffect::setup(CRGB *_leds, uint16_t _numLeds) {
-  FaseLedEffect::setup(_leds, _numLeds);
+  FastLEDEffect::setup(_leds, _numLeds);
 
   heat = new uint8_t[_numLeds];
   for (uint16_t i=0;i<_numLeds;i++) {

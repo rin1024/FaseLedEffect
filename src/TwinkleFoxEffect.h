@@ -18,7 +18,7 @@
 #include "WProgram.h"
 #endif
 #include <FastLED.h>
-#include "FaseLedEffect.h"
+#include "FastLEDEffect.h"
 #include "FastLEDEffectPalette.h"
 
 /*******************************************
@@ -48,7 +48,7 @@
 /**************************************************************************************
   class definition
  **************************************************************************************/
-class TwinkleFoxEffect: public FaseLedEffect {
+class TwinkleFoxEffect: public FastLEDEffect {
   public:
     void setup(CRGB *_leds, uint16_t _numLeds = 5);
     void loop();

@@ -18,7 +18,7 @@
 #include "WProgram.h"
 #endif
 #include <FastLED.h>
-#include "FaseLedEffect.h"
+#include "FastLEDEffect.h"
 
 /*******************************************
    const
@@ -28,7 +28,7 @@
 /**************************************************************************************
    class definition
  **************************************************************************************/
-class PrideEffect: public FaseLedEffect {
+class PrideEffect: public FastLEDEffect {
   public:
     void loop();
 

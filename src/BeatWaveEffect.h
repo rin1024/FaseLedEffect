@@ -18,7 +18,7 @@
 #include "WProgram.h"
 #endif
 #include <FastLED.h>
-#include "FaseLedEffect.h"
+#include "FastLEDEffect.h"
 
 /*******************************************
   const
@@ -28,7 +28,7 @@
 /**************************************************************************************
   class definition
  **************************************************************************************/
-class BeatWaveEffect: public FaseLedEffect {
+class BeatWaveEffect: public FastLEDEffect {
   public:
     void setup(CRGB *_leds, uint16_t _numLeds = 5);
     void loop();

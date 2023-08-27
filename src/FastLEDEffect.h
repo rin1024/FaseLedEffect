@@ -1,5 +1,5 @@
 /**
-   FaseLedEffect
+   FastLEDEffect
 */
 #ifndef FAST_LED_EFFECT_H
 #define FAST_LED_EFFECT_H
@@ -27,10 +27,10 @@
 /**************************************************************************************
    class definition
  **************************************************************************************/
-class FaseLedEffect {
+class FastLEDEffect {
   public:
-    FaseLedEffect();
-    ~FaseLedEffect();
+    FastLEDEffect();
+    ~FastLEDEffect();
 
     void setup(CRGB *_leds, uint16_t _numLeds = 5);
     void loop();
