@@ -1,8 +1,8 @@
 /**
   BeatWaveEffect
   */
-#ifndef CONFETTI_EFFECT_H
-#define CONFETTI_EFFECT_H
+#ifndef BEATWAVE_EFFECT_H
+#define BEATWAVE_EFFECT_H
 
 /*******************************************
   include
