@@ -1,0 +1,20 @@
+{
+    "name": "FastLEDEffect",
+    "keywords": "FastLED, effect",
+    "description": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rin1024/FastLEDEffect.git"
+    },
+    "version": "0.7.5",
+    "exclude": "tests",
+    "examples": "examples/*/*.ino",
+    "frameworks": "arduino",
+    "platforms": [
+        "atmelavr",
+        "espressif8266",
+        "espressif32",
+        "atmelsam",
+        "ststm32"
+    ]
+}
