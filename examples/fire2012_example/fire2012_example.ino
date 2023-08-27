@@ -30,6 +30,8 @@ void setup() {
     .setCorrection(TypicalLEDStrip);
 
   effect.setup(leds, NUM_LEDS);
+  effect.setCooling(DEFAULT_COOLING); // 20 - 100
+  effect.setSparking(DEFAULT_SPARKING); // 50 - 200
 }
 
 void loop() {

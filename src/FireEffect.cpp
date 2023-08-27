@@ -43,7 +43,7 @@ void FireEffect::loop() {
 void FireEffect::Fire2012(){
   // Step 1.  Cool down every cell a little
   for( uint16_t i = 0; i < numLeds; i++) {
-    heat[i] = qsub8( heat[i],  random8(0, ((COOLING * 10) / numLeds) + 2));
+    heat[i] = qsub8( heat[i],  random8(0, ((cooling * 10) / numLeds) + 2));
   }
 
   // Step 2.  Heat from each cell drifts 'up' and diffuses a little
@@ -52,7 +52,7 @@ void FireEffect::Fire2012(){
   }
 
   // Step 3.  Randomly ignite new 'sparks' of heat near the bottom
-  if( random8() < SPARKING ) {
+  if( random8() < sparking ) {
     int y = random8(7);
     heat[y] = qadd8( heat[y], random8(160,255) );
   }
@@ -68,4 +68,18 @@ void FireEffect::Fire2012(){
     }
     leds[pixelnumber] = blend(CRGB::Black, color, getBrightness());
   }
+}
+
+/**
+ *
+ */
+void FireEffect::setCooling(uint8_t _cooling) {
+  cooling = _cooling;
+}
+
+/**
+ *
+ */
+void FireEffect::setSparking(uint8_t _sparking) {
+  sparking = _sparking;
 }

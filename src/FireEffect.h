@@ -54,12 +54,12 @@
 // COOLING: How much does the air cool as it rises?
 // Less cooling = taller flames.  More cooling = shorter flames.
 // Default 50, suggested range 20-100 
-#define COOLING  55
+#define DEFAULT_COOLING  55
 
 // SPARKING: What chance (out of 255) is there that a new spark will be lit?
 // Higher chance = more roaring fire.  Lower chance = more flickery fire.
 // Default 120, suggested range 50-200.
-#define SPARKING 120
+#define DEFAULT_SPARKING 120
 
 /**************************************************************************************
    class definition
@@ -75,9 +75,14 @@ class FireEffect: public FaseLedEffect {
     void setup(CRGB *_leds, uint16_t _numLeds = 5);
     void loop();
 
+    void setCooling(uint8_t _cooling);
+    void setSparking(uint8_t _sparking);
+
   private:
     // Array of temperature readings at each simulation cell
     uint8_t *heat;
+    uint8_t cooling = DEFAULT_COOLING;
+    uint8_t sparking = DEFAULT_SPARKING;
 
     void Fire2012();
 };
