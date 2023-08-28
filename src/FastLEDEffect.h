@@ -22,7 +22,8 @@
 /*******************************************
    const
  *******************************************/
-//
+#define TEST_INTERVAL  1000
+#define TEST_BRIGHTNESS 255
 
 /**************************************************************************************
    class definition
@@ -43,7 +44,12 @@ class FastLEDEffect {
     CRGB *leds; // CRGBSet
     uint16_t numLeds;
 
+    uint8_t testIndex;
+    uint32_t testTimer;
+
     uint16_t brightness;
+
+    void setAndShowColor(CRGB _color);    
 };
 
 #endif
